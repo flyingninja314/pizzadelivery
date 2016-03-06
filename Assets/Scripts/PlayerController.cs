@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody2D myRigidBody2D;
 
 	private Animator anim;
+
+	public Transform firePoint;
+	public GameObject ninjaStar;
 	
 	// Use this for initialization
 	void Start () {
@@ -44,20 +47,29 @@ public class PlayerController : MonoBehaviour {
 			doubleJumped = true;
 		}
 		moveVelocity = 0f;
+
 		if(Input.GetKey (KeyCode.D)) {
 			//myRigidBody2D.velocity = new Vector2(moveSpeed, myRigidBody2D.velocity.y);
 			moveVelocity = moveSpeed;
 		}
+
 		if(Input.GetKey (KeyCode.A)) {
 			//myRigidBody2D.velocity = new Vector2(-moveSpeed, myRigidBody2D.velocity.y);
 			moveVelocity = -moveSpeed;
 		}
+
 		GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveVelocity, myRigidBody2D.velocity.y);
+
 		anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
+
 		if (GetComponent<Rigidbody2D> ().velocity.x > 0) {
 			transform.localScale = new Vector3 (1f, 1f, 1f);
 		} else if (GetComponent<Rigidbody2D> ().velocity.x < 0) {
 			transform.localScale = new Vector3 (-1f, 1f, 1f);
+		}
+
+		if(Input.GetKeyDown(KeyCode.Return)) {
+			Instantiate(ninjaStar, firePoint.position, firePoint.rotation);
 		}
 	}
 
