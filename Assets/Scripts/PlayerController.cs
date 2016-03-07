@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour {
 	private bool grounded;
 
 	private bool doubleJumped;
-	
-	private Rigidbody2D myRigidBody2D;
 
 	private Animator anim;
 
@@ -23,6 +21,14 @@ public class PlayerController : MonoBehaviour {
 
 	public float shotDelay;
 	private float shotDelayCounter;
+
+	public float knockback;
+	public float knockbackLength;
+	public float knockbackCount;
+	public bool knockFromRight;
+
+	private Rigidbody2D myRigidBody2D;
+
 	
 	// Use this for initialization
 	void Start () {
@@ -61,7 +67,19 @@ public class PlayerController : MonoBehaviour {
 			moveVelocity = -moveSpeed;
 		}
 
-		GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveVelocity, myRigidBody2D.velocity.y);
+		if (knockbackCount <= 0) {
+			GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveVelocity, myRigidBody2D.velocity.y);
+		} else {
+			if(knockFromRight) {
+				myRigidBody2D.velocity = new Vector2(-knockback, knockback);
+			}
+
+			if(!knockFromRight) {
+				myRigidBody2D.velocity = new Vector2(knockback, knockback);
+			}
+
+			knockbackCount -= Time.deltaTime;
+		}
 
 		anim.SetFloat("Speed", Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x));
 
