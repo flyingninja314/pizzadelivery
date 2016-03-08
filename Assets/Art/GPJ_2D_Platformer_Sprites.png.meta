@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 340a043f98ffa1345a610f11c910d76b
-timeCreated: 1457280468
+timeCreated: 1457396954
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -14,6 +14,7 @@ TextureImporter:
     21300014: Enemy_2
     21300016: Enemy_3
     21300018: NinjaStar
+    21300020: Player_Sword
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -156,6 +157,16 @@ TextureImporter:
         y: 97
         width: 6
         height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Player_Sword
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 101
+        width: 9
+        height: 5
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}

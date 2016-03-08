@@ -89,12 +89,12 @@ public class PlayerController : MonoBehaviour {
 			transform.localScale = new Vector3 (-1f, 1f, 1f);
 		}
 
-		if(Input.GetKeyDown(KeyCode.Space)) {
+		if(Input.GetKeyDown(KeyCode.Return)) {
 			Instantiate(ninjaStar, firePoint.position, firePoint.rotation);
 			shotDelayCounter = shotDelay;
 		}
 
-		if (Input.GetKey (KeyCode.Space)) {
+		if (Input.GetKey (KeyCode.Return)) {
 			shotDelayCounter -= Time.deltaTime;
 
 			if(shotDelayCounter <= 0) {
@@ -102,6 +102,14 @@ public class PlayerController : MonoBehaviour {
 				Instantiate(ninjaStar, firePoint.position, firePoint.rotation);
 
 			}
+		}
+
+		if (anim.GetBool("Sword")) {
+			anim.SetBool("Sword", false);
+		}
+
+		if (Input.GetKey (KeyCode.Space)) {
+			anim.SetBool("Sword", true);
 		}
 	}
 
