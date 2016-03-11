@@ -46,26 +46,20 @@ public class PlayerController : MonoBehaviour {
 			doubleJumped = false;
 		}
 		anim.SetBool ("Grounded", grounded);
-		if(Input.GetKeyDown (KeyCode.W) && grounded) {
+		if(Input.GetButtonDown("Jump") && grounded) {
 			//myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x, jumpHeight);
 			Jump ();
 		}
-		if(Input.GetKeyDown (KeyCode.W) && !doubleJumped && !grounded) {
+		if(Input.GetButtonDown("Jump") && !doubleJumped && !grounded) {
 			//myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x, jumpHeight);
 			Jump ();
 			doubleJumped = true;
 		}
-		moveVelocity = 0f;
 
-		if(Input.GetKey (KeyCode.D)) {
-			//myRigidBody2D.velocity = new Vector2(moveSpeed, myRigidBody2D.velocity.y);
-			moveVelocity = moveSpeed;
-		}
+		moveVelocity = moveSpeed * Input.GetAxisRaw ("Horizontal");
+		
+		//moveVelocity = 0f;
 
-		if(Input.GetKey (KeyCode.A)) {
-			//myRigidBody2D.velocity = new Vector2(-moveSpeed, myRigidBody2D.velocity.y);
-			moveVelocity = -moveSpeed;
-		}
 
 		if (knockbackCount <= 0) {
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveVelocity, myRigidBody2D.velocity.y);
@@ -89,12 +83,12 @@ public class PlayerController : MonoBehaviour {
 			transform.localScale = new Vector3 (-1f, 1f, 1f);
 		}
 
-		if(Input.GetKeyDown(KeyCode.Return)) {
+		if(Input.GetButtonDown("Fire2")) {
 			Instantiate(ninjaStar, firePoint.position, firePoint.rotation);
 			shotDelayCounter = shotDelay;
 		}
 
-		if (Input.GetKey (KeyCode.Return)) {
+		if (Input.GetButton ("Fire2")) {
 			shotDelayCounter -= Time.deltaTime;
 
 			if(shotDelayCounter <= 0) {
@@ -108,7 +102,7 @@ public class PlayerController : MonoBehaviour {
 			anim.SetBool("Sword", false);
 		}
 
-		if (Input.GetKey (KeyCode.Space)) {
+		if (Input.GetButton("Fire1")) {
 			anim.SetBool("Sword", true);
 		}
 	}
