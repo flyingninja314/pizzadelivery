@@ -13,6 +13,8 @@ public class HealthManager : MonoBehaviour {
 	private LevelManager levelManager;
 
 	public bool isDead;
+
+	private LifeManager lifeSystem;
 	
 	// Use this for initialization
 	void Start () {
@@ -22,6 +24,8 @@ public class HealthManager : MonoBehaviour {
 		
 		levelManager = FindObjectOfType<LevelManager>();
 
+		lifeSystem = FindObjectOfType<LifeManager> ();
+
 		isDead = false;
 	}
 	
@@ -30,6 +34,7 @@ public class HealthManager : MonoBehaviour {
 		if(playerHealth <= 0 && !isDead) {
 			playerHealth = 0;
 			levelManager.RespawnPlayer();
+			lifeSystem.takeLife();
 			isDead = true;
 		}
 		
