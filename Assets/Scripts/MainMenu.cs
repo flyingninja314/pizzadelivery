@@ -7,11 +7,16 @@ public class MainMenu : MonoBehaviour {
 
 	public string levelSelect;
 
+	public int playerLives;
+
 	public void NewGame() {
 		Application.LoadLevel (startLevel);
+
+		PlayerPrefs.SetInt ("PlayerCurrentLives", playerLives);
 	}
 
 	public void LevelSelect() {
+		PlayerPrefs.SetInt ("PlayerCurrentLives", playerLives);
 		Application.LoadLevel (levelSelect);
 	}
 
