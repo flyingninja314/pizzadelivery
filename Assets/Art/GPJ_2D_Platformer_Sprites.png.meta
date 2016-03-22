@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 340a043f98ffa1345a610f11c910d76b
-timeCreated: 1458603362
+timeCreated: 1458622913
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -19,6 +19,7 @@ TextureImporter:
     21300024: Coin_2
     21300026: Coin_3
     21300028: Ladder
+    21300030: Enemy Star
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -211,6 +212,16 @@ TextureImporter:
         y: 80
         width: 16
         height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Enemy Star
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 95
+        width: 9
+        height: 9
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
