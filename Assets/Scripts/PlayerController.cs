@@ -29,11 +29,17 @@ public class PlayerController : MonoBehaviour {
 
 	private Rigidbody2D myRigidBody2D;
 
-	
+	public bool onLadder;
+	public float climbSpeed;
+	private float climbVelocity;
+	private float gravityStore;
+
 	// Use this for initialization
 	void Start () {
 		myRigidBody2D = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator> ();
+
+		gravityStore = myRigidBody2D.gravityScale;
 	}
 	
 	void FixedUpdate() {
@@ -104,6 +110,18 @@ public class PlayerController : MonoBehaviour {
 
 		if (Input.GetButton("Fire1")) {
 			anim.SetBool("Sword", true);
+		}
+
+		if (onLadder) {
+			myRigidBody2D.gravityScale = 0f;
+
+			climbVelocity = climbSpeed * Input.GetAxisRaw("Vertical");
+
+			myRigidBody2D.velocity = new Vector2 (myRigidBody2D.velocity.x, climbVelocity);
+		}
+
+		if (!onLadder) {
+			myRigidBody2D.gravityScale = gravityStore;
 		}
 	}
 
