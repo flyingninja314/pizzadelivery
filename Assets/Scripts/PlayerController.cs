@@ -128,4 +128,16 @@ public class PlayerController : MonoBehaviour {
 	public void Jump() {
 		myRigidBody2D.velocity = new Vector2(myRigidBody2D.velocity.x, jumpHeight);
 	}
+
+	void OnCollisionEnter2D(Collision2D other) {
+		if (other.transform.tag == "Moving Platform") {
+			transform.parent = other.transform;
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D other) {
+		if (other.transform.tag == "Moving Platform") {
+			transform.parent = null;
+		}
+	}
 }
