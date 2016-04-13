@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 340a043f98ffa1345a610f11c910d76b
-timeCreated: 1458874922
+timeCreated: 1460226160
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -25,6 +25,11 @@ TextureImporter:
     21300036: Flying_3
     21300038: Flying_4
     21300040: HealthPickup
+    21300042: Level_Select_1
+    21300044: Level_Select_2
+    21300046: Level_Select_3
+    21300048: Level_Select_4
+    21300050: Level_Select_Lock
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -277,6 +282,56 @@ TextureImporter:
         y: 34
         width: 9
         height: 8
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Level_Select_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Level_Select_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Level_Select_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Level_Select_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Level_Select_Lock
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 19
+        width: 7
+        height: 9
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
