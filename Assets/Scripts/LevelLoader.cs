@@ -7,6 +7,8 @@ public class LevelLoader : MonoBehaviour {
 
 	public string levelToLoad;
 
+	public string levelTag;
+
 	// Use this for initialization
 	void Start () {
 		playerInZone = false;
@@ -15,9 +17,14 @@ public class LevelLoader : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetAxisRaw("Vertical") > 0 && playerInZone) {
-			Application.LoadLevel(levelToLoad);
+			LoadLevel();
 			//Application.LoadLevelAsync(levelToLoad);
 		}
+	}
+
+	public void LoadLevel() {
+		PlayerPrefs.SetInt (levelTag, 1);
+		Application.LoadLevel(levelToLoad);
 	}
 
 	
