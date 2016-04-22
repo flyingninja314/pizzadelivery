@@ -22,6 +22,8 @@ public class MainMenu : MonoBehaviour {
 		PlayerPrefs.SetInt("PlayerMaxHealth", playerHealth);
 
 		PlayerPrefs.SetInt (level1Tag, 1);
+
+		PlayerPrefs.SetInt ("PlayerLevelSelectPosition", 0);
 		Application.LoadLevel (startLevel);
 	}
 
@@ -34,6 +36,11 @@ public class MainMenu : MonoBehaviour {
 		PlayerPrefs.SetInt("PlayerMaxHealth", playerHealth);
 		
 		PlayerPrefs.SetInt (level1Tag, 1);
+
+		if(!PlayerPrefs.HasKey("PlayerLevelSelectPosition")) {
+			PlayerPrefs.SetInt ("PlayerLevelSelectPosition", 0);
+		}
+
 		Application.LoadLevel (levelSelect);
 	}
 
