@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class HealthPickup : MonoBehaviour {
 
-	public int healthToGive;
+		public int healthToGive;
 
-	public AudioSource pickupSound;
+		public AudioSource pickupSound;
 
 	// Use this for initialization
 	void OnTriggerEnter2D (Collider2D other) {
