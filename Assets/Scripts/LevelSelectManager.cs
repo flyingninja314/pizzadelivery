@@ -19,21 +19,21 @@ public class LevelSelectManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		for(int i = 0; i < levelTags.Length; i++) {
-			if(PlayerPrefs.GetInt(levelTags[i]) == null) {
-				levelUnlocked[i] = false;
-			} else if(PlayerPrefs.GetInt(levelTags[i]) == 0) {				
-				levelUnlocked[i] = false;
-			} else if(PlayerPrefs.GetInt(levelTags[i]) == 1) {
-				levelUnlocked[i] = true;
-			} else {
-				Debug.Log("Yo this shiznot be whack");
-			}
-
-			if(levelUnlocked[i]) {
-				locks[i].SetActive(false);
-			}
-		}
+		//for(int i = 0; i < levelTags.Length; i++) {
+		//	if(PlayerPrefs.GetInt(levelTags[i]) == null) {
+		//		levelUnlocked[i] = false;
+		//	} else if(PlayerPrefs.GetInt(levelTags[i]) == 0) {				
+		//		levelUnlocked[i] = false;
+		//	} else if(PlayerPrefs.GetInt(levelTags[i]) == 1) {
+		//		levelUnlocked[i] = true;
+		//	} else {
+		//		Debug.Log("Yo this shiznot be whack");
+		//	}
+		//
+		//	if(levelUnlocked[i]) {
+		//		locks[i].SetActive(false);
+		//	}
+		//}
 
 		positionSelector = PlayerPrefs.GetInt ("PlayerLevelSelectPosition");
 
@@ -70,7 +70,7 @@ public class LevelSelectManager : MonoBehaviour {
 
 		transform.position = Vector3.MoveTowards(transform.position, locks[positionSelector].transform.position + new Vector3(0, distanceBelowLock, 0), moveSpeed * Time.deltaTime);
 
-		if(Input.GetButtonDown("Fire1") || Input.GetButtonDown("Jump")) {
+		if(Input.GetButtonDown("Vertical") || Input.GetButtonDown("Jump")) {
 			if(levelUnlocked[positionSelector]) {
 				PlayerPrefs.SetInt("PlayerLevelSelectPosition", positionSelector);
 				Application.LoadLevel(levelName[positionSelector]);
