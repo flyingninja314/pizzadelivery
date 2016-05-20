@@ -4,7 +4,8 @@ using System.Collections;
 public class EnemyPatrol : MonoBehaviour {
 
 	public float moveSpeed;
-	public bool moveRight;
+	//public bool moveRight;
+	public bool moveLeft;
 
 	public Transform wallCheck;
 	public float wallCheckRadius;
@@ -26,14 +27,18 @@ public class EnemyPatrol : MonoBehaviour {
 		notAtEdge = Physics2D.OverlapCircle(edgeCheck.position, wallCheckRadius, whatIsWall);
 
 		if (hittingWall || !notAtEdge) {
-			moveRight = !moveRight;
+			//moveRight = !moveRight;
+			moveLeft = !moveLeft;
 		}
 
-		if (moveRight) {
-			transform.localScale = new Vector3(-1f, 1f, 1f);
+		//if (moveRight) {
+		if (moveLeft) {
+			//transform.localScale = new Vector3(-1f, 1f, 1f);
+			transform.localScale = new Vector3(1f, 1f, 1f);
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
 		} else {
-			transform.localScale = new Vector3(1f, 1f, 1f);
+			//transform.localScale = new Vector3(1f, 1f, 1f);
+			transform.localScale = new Vector3(-1f, 1f, 1f);
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (-moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
 		}
 	}

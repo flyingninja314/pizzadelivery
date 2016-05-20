@@ -23,6 +23,7 @@ public class LevelLoader : MonoBehaviour {
 	}
 
 	public void LoadLevel() {
+		Debug.Log ("yo the levelTag is " + levelTag);
 		PlayerPrefs.SetInt (levelTag, 1);
 		Application.LoadLevel(levelToLoad);
 	}

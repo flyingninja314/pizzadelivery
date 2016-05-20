@@ -24,8 +24,10 @@ public class LevelSelectManager : MonoBehaviour {
 				levelUnlocked[i] = false;
 			} else if(PlayerPrefs.GetInt(levelTags[i]) == 0) {				
 				levelUnlocked[i] = false;
-			} else {
+			} else if(PlayerPrefs.GetInt(levelTags[i]) == 1) {
 				levelUnlocked[i] = true;
+			} else {
+				Debug.Log("Yo this shiznot be whack");
 			}
 
 			if(levelUnlocked[i]) {
